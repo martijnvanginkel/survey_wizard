@@ -1,20 +1,21 @@
 <template>
   <div id="app">
     <h1 class="main_title">Survey Wizard</h1>
-    <Survey v-on:moveUp="moveUp" v-on:delete-field="deleteField" v-bind:fields="fields"/>
-    <ToolBox v-on:create-field="createField"/>
+    <Survey />
+    <!-- <ToolBox v-on:create-field="createField"/> -->
+    <!-- <button v-on:click="startSurvey">Start</button> -->
   </div>
 </template>
 
 <script>
 import Survey from './components/Survey';
-import ToolBox from './components/ToolBox';
+// import ToolBox from './components/ToolBox';
 
 export default {
   name: 'App',
   components: {
-    Survey,
-    ToolBox
+    Survey
+    // ToolBox
   },
   data() {
     return {
