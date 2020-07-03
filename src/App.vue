@@ -25,8 +25,6 @@ export default {
   },
   methods: {
     createField(field) {
-      console.log('addText in app')
-      console.log(field.render);
       this.fields = [...this.fields, field];
     }
   }

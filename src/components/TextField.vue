@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text_field">
-            <label>Type: text</label>
+            <label>Type: Text</label>
             <input type="text" placeholder="Question">
         </div>
     </div>

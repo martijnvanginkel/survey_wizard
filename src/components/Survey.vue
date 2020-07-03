@@ -2,35 +2,22 @@
     <div>
         <h3>Survey</h3>
         <div v-bind:key="field.id" v-for="field in fields">
-            <!-- <h3>field</h3> -->
-            <!-- <component
-                :is="type == 'EmailMessage' ? 'email-queue-item' : 'queue-item'"
-                v-for="item in queue"
-                :key="item.id"
-                :item="item"
-            /> -->
-            <component v-bind:is="TextField"></component>
-
+            <component v-bind:is="field"></component>
         </div>
-        <!-- <TextField /> -->
-        <component v-bind:is="TextField"></component>
     </div>
 </template>
 
 <script>
 import TextField from './TextField';
+import TextAreaField from './TextAreaField';
 
 export default {
     name: 'Survey',
     components: {
-        TextField
+        TextField,
+        TextAreaField
     },
-    props: ['fields'],
-    data() {
-        return {
-            TextField
-        }
-    }
+    props: ['fields']
 }
 </script>
 

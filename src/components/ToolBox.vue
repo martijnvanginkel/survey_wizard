@@ -1,23 +1,19 @@
 <template>
     <div>
         <div class="tool_box">
-            <TextFieldTool v-on:createTextField="createField" />
-            <button>Textarea</button>
+            <button v-on:click="createField('TextField')">Text</button>
+            <button v-on:click="createField('TextAreaField')">Textarea</button>
         </div>
     </div>
 </template>
 
 <script>
-import TextFieldTool from './TextFieldTool';
 
 export default {
     name: 'ToolBox',
-    components: {
-        TextFieldTool
-    },
     methods: {
-        createField(field) {
-            this.$emit('create-field', field);
+        createField(type) {
+            this.$emit('create-field', type);
         }
     }
 }
