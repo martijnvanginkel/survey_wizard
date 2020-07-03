@@ -16,6 +16,7 @@ export default {
         createField(component) {
             const field = {
                 id: uuid.v4(),
+                question: '',
                 component: component
             }
             this.$emit('create-field', field);

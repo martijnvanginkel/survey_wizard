@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1 class="main_title">Survey Wizard</h1>
-    <Survey v-on:delete-field="deleteField" v-bind:fields="fields"/>
+    <Survey v-on:moveUp="moveUp" v-on:delete-field="deleteField" v-bind:fields="fields"/>
     <ToolBox v-on:create-field="createField"/>
   </div>
 </template>
@@ -29,6 +29,20 @@ export default {
     },
     deleteField(field_id) {
       this.fields = this.fields.filter(field => field.id !== field_id);
+    },
+    moveUp(field) {
+      const fields = this.fields;
+      for (const key in fields) {
+        if (fields[key].id === field.id) {
+          // const comp = fields[key];
+          // this.fields.splice(key, 1);
+          // this.fields.splice(0, 0, temp);
+          return ;
+          // this.fields.splice(key + 1, 0, comp);
+        }
+      }
+      // console.log(field);
+      // console.log('moveup')
     }
   }
 }

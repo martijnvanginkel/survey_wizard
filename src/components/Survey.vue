@@ -2,7 +2,12 @@
     <div>
         <h3>Survey</h3>
         <div v-bind:key="field.id" v-for="field in fields">
-            <component v-bind:is="field.component" v-bind:field="field" v-on:delete-field="deleteField"></component>
+            <component  v-bind:is="field.component" 
+                        v-bind:field="field"
+                        v-on:delete-field="deleteField"
+                        v-on:moveUp="moveUp"
+            >
+            </component>
         </div>
     </div>
 </template>
@@ -19,9 +24,11 @@ export default {
     },
     methods: {
         deleteField(field_id) {
-            // console.log('survey delete');
-            // console.log(field.id);
             this.$emit('delete-field', field_id);
+        },
+        moveUp(field) {
+            // console.log('moveup');
+            this.$emit('moveUp', field);
         }
     },
     props: ['fields']
