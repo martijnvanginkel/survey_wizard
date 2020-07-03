@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <h1 class="main_title">Survey Wizard</h1>
-    <Survey />
+    <!-- <Survey /> -->
     <!-- <ToolBox v-on:create-field="createField"/> -->
-    <!-- <button v-on:click="startSurvey">Start</button> -->
+    <div v-if="doing_survey">
+      <Survey/>
+    </div>
+
+    <button v-on:click="createSurvey">Start</button>
   </div>
 </template>
 
@@ -19,12 +23,20 @@ export default {
   },
   data() {
     return {
-      fields: [
+      doing_survey: false
+      // surveys: []
+      // fields: [
 
-      ]
+      // ]
     }
   },
   methods: {
+    createSurvey() {
+
+
+      this.doing_survey = true;//.push(field);
+      console.log('created');
+    },
     createField(field) {
       this.fields = [...this.fields, field];
     },
