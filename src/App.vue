@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1 class="main_title">Survey Wizard</h1>
-    <Survey v-bind:fields="fields"/>
+    <Survey v-on:delete-field="deleteField" v-bind:fields="fields"/>
     <ToolBox v-on:create-field="createField"/>
   </div>
 </template>
@@ -26,6 +26,9 @@ export default {
   methods: {
     createField(field) {
       this.fields = [...this.fields, field];
+    },
+    deleteField(field_id) {
+      this.fields = this.fields.filter(field => field.id !== field_id);
     }
   }
 }

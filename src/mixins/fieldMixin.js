@@ -1,7 +1,7 @@
 export default {
     methods: {
         deleteField() {
-            console.log('delete');
+            this.$emit('delete-field', this.field.id);
         }
     }
 }

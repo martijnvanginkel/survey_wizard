@@ -8,12 +8,17 @@
 </template>
 
 <script>
+import { uuid } from 'vue-uuid'; 
 
 export default {
     name: 'ToolBox',
     methods: {
-        createField(type) {
-            this.$emit('create-field', type);
+        createField(component) {
+            const field = {
+                id: uuid.v4(),
+                component: component
+            }
+            this.$emit('create-field', field);
         }
     }
 }

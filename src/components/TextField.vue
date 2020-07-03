@@ -13,6 +13,7 @@ import fieldMixin from './../mixins/fieldMixin';
 
 export default {
     name: 'TextField',
+    props: ['field'],
     mixins: [fieldMixin]
 }
 </script>
