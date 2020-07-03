@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 class="main_title">Survey Wizard</h1>
+    <Survey v-bind:fields="fields"/>
+    <ToolBox v-on:create-field="createField"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Survey from './components/Survey';
+import ToolBox from './components/ToolBox';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Survey,
+    ToolBox
+  },
+  data() {
+    return {
+      fields: [
+
+      ]
+    }
+  },
+  methods: {
+    createField(field) {
+      console.log('addText in app')
+      console.log(field.render);
+      this.fields = [...this.fields, field];
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+.main_title {
+  font-family: 'SF Pixelate';
+  width: 100%;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
