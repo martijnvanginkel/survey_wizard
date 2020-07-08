@@ -26,12 +26,15 @@ export default {
 </script>
 
 <style>
-.tool_box {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
+.tool_box { 
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
-    background-color: blue;
+    background-color: lightgrey;
 }
 </style>

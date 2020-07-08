@@ -1,41 +1,29 @@
 <template>
   <div id="app">
-    <h1 class="main_title">Survey Wizard</h1>
-    <!-- <Survey /> -->
-    <!-- <ToolBox v-on:create-field="createField"/> -->
-    <div v-if="doing_survey">
-      <Survey/>
-    </div>
-
-    <button v-on:click="createSurvey">Start</button>
+    <h1 class="main-title">Survey Wizard</h1>
+    <transition name="fade">
+      <Survey v-if="doing_survey"/>
+      <button v-if="!doing_survey" v-on:click="createSurvey" class="start-button">start</button>
+    </transition>
   </div>
 </template>
 
 <script>
 import Survey from './components/Survey';
-// import ToolBox from './components/ToolBox';
 
 export default {
   name: 'App',
   components: {
     Survey
-    // ToolBox
   },
   data() {
     return {
       doing_survey: false
-      // surveys: []
-      // fields: [
-
-      // ]
     }
   },
   methods: {
     createSurvey() {
-
-
-      this.doing_survey = true;//.push(field);
-      console.log('created');
+      this.doing_survey = true;
     },
     createField(field) {
       this.fields = [...this.fields, field];
@@ -51,25 +39,62 @@ export default {
           // this.fields.splice(key, 1);
           // this.fields.splice(0, 0, temp);
           return ;
-          // this.fields.splice(key + 1, 0, comp);
         }
       }
-      // console.log(field);
-      // console.log('moveup')
     }
   }
 }
 </script>
 
 <style>
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   margin: 0;
   padding: 0;
 }
 
-.main_title {
-  font-family: 'SF Pixelate';
+.main-title {
+  font-family: 'Roboto', sans-serif; /* 'SF Pixelate' */
   width: 100%;
   text-align: center;
+  /* -webkit-text-stroke: 2px black; */
 }
+
+.start-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 200ms;
+  margin: 0 auto;
+  padding: 10px 25px;
+  border: 0;
+  border-bottom: 2px solid #ff7f7a;
+  border-radius: 100px;
+  color: #fffff2;
+  font-size: 1em;
+  letter-spacing: 1px;
+  background-color: lightsalmon;
+  outline: none;
+}
+
+.start-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  transition: 500ms;
+  cursor: pointer;
+  background-color: #ff7f7a;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 </style>
