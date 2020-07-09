@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <h1 class="main-title">Survey Wizard</h1>
+    <header class="main-header">
+      <h1>survey wizard</h1>
+      <p>create and share surveys quickly.</p>
+    </header>
     <transition name="fade">
       <Survey v-if="doing_survey"/>
       <button v-if="!doing_survey" v-on:click="createSurvey" class="start-button">start</button>
@@ -24,24 +27,24 @@ export default {
   methods: {
     createSurvey() {
       this.doing_survey = true;
-    },
-    createField(field) {
-      this.fields = [...this.fields, field];
-    },
-    deleteField(field_id) {
-      this.fields = this.fields.filter(field => field.id !== field_id);
-    },
-    moveUp(field) {
-      const fields = this.fields;
-      for (const key in fields) {
-        if (fields[key].id === field.id) {
-          // const comp = fields[key];
-          // this.fields.splice(key, 1);
-          // this.fields.splice(0, 0, temp);
-          return ;
-        }
-      }
-    }
+    }//,
+    // createField(field) {
+    //   this.fields = [...this.fields, field];
+    // },
+    // deleteField(field_id) {
+    //   this.fields = this.fields.filter(field => field.id !== field_id);
+    // },
+    // moveUp(field) {
+    //   const fields = this.fields;
+    //   for (const key in fields) {
+    //     if (fields[key].id === field.id) {
+    //       // const comp = fields[key];
+    //       // this.fields.splice(key, 1);
+    //       // this.fields.splice(0, 0, temp);
+    //       return ;
+    //     }
+    //   }
+    // }
   }
 }
 </script>
@@ -51,6 +54,8 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffe8e7;
 }
 
 #app {
@@ -58,11 +63,14 @@ html, body {
   padding: 0;
 }
 
-.main-title {
-  font-family: 'Roboto', sans-serif; /* 'SF Pixelate' */
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
   width: 100%;
   text-align: center;
-  /* -webkit-text-stroke: 2px black; */
 }
 
 .start-button {
