@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <header class="main-header">
+    <!-- <header class="main-header">
       <h1>survey wizard</h1>
       <p>create and share surveys quickly.</p>
-    </header>
+    </header> -->
     <transition name="fade">
       <Survey v-if="doing_survey"/>
       <button v-if="!doing_survey" v-on:click="createSurvey" class="start-button">start</button>
     </transition>
+    
   </div>
 </template>
 
@@ -27,29 +28,16 @@ export default {
   methods: {
     createSurvey() {
       this.doing_survey = true;
-    }//,
-    // createField(field) {
-    //   this.fields = [...this.fields, field];
-    // },
-    // deleteField(field_id) {
-    //   this.fields = this.fields.filter(field => field.id !== field_id);
-    // },
-    // moveUp(field) {
-    //   const fields = this.fields;
-    //   for (const key in fields) {
-    //     if (fields[key].id === field.id) {
-    //       // const comp = fields[key];
-    //       // this.fields.splice(key, 1);
-    //       // this.fields.splice(0, 0, temp);
-    //       return ;
-    //     }
-    //   }
-    // }
+    }
   }
 }
 </script>
 
 <style>
+
+html {
+  overflow-y: scroll;
+}
 
 html, body {
   margin: 0;

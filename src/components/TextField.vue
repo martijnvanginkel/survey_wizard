@@ -1,7 +1,8 @@
 <template>
     <div class="question-box">
         <div class="question-header">
-            <button v-on:click="moveUp">Up</button>
+            <button v-on:click="moveUp"><font-awesome-icon icon="sort-amount-up" /></button>
+            <button v-on:click="moveDown"><font-awesome-icon icon="sort-amount-down" /></button>
             <button v-on:click="deleteField">Delete</button>
         </div>
         <div class="question-input">
@@ -35,6 +36,7 @@ export default {
 .question-box:focus-within {
     padding-left: 12px;
     border-left: 4px solid #d3a3a2;
+    transition: 200ms ease;
 }
 
 .question-header {

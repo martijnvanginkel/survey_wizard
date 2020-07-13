@@ -1,20 +1,25 @@
 <template>
-    <div class="survey">
-        <ToolBox v-on:create-field="createField"/>
-        <div class="question-box">
-            <input class="survey-title" type="text" placeholder="Title">
-            <input class="survey-description" type="text" placeholder="Description">
-        </div>    
-        <transition-group name="list" tag="p">
-            <div v-bind:key="field.id" v-for="field in fields" class="panel">
-                <component  v-bind:is="field.component" 
-                            v-bind:field="field"
-                            v-on:delete-field="deleteField"
-                            v-on:move-up="moveUp">
-                </component>
-                
-            </div>
-        </transition-group>
+    <div class="survey-container">
+        <div class="survey">
+            <div class="question-box">
+                <input class="survey-title" type="text" placeholder="Title">
+                <input class="survey-description" type="text" placeholder="Description">
+            </div>    
+            <transition-group name="field-list">
+                <div v-bind:key="field.id" v-for="field in orderFields" class="field-list-panel">
+                    <component  v-bind:is="field.component" 
+                                v-bind:field="field"
+                                v-on:delete-field="deleteField"
+                                v-on:move-up="moveUp"
+                                v-on:move-down="moveDown">
+                    </component>
+                </div>
+            </transition-group>
+        </div>
+        <div class="side-bar">
+            <ToolBox    v-on:create-field="createField"
+                        v-bind:fields="fields"/>
+        </div>
     </div>
 </template>
 
@@ -22,8 +27,6 @@
 import ToolBox from './ToolBox';
 import TextField from './TextField';
 import TextAreaField from './TextAreaField';
-
-
 
 export default {
     name: 'Survey',
@@ -34,23 +37,53 @@ export default {
     },
     data() {
         return {
-            fields: []
+            fields: [
+
+            ]
+        }
+    },
+    computed: {
+        orderFields() {
+            const compare = (a, b) => {
+                if (a.order < b.order) return -1;
+                if (a.order > b.order) return 1;
+                return 0;
+            }
+            const temp = this.fields;
+            return temp.sort(compare);         
         }
     },
     methods: {
-        createField(field) {
-            this.fields = [...this.fields, field];
+        createField(new_field) {
+            this.fields = [...this.fields, new_field];
         },
-        deleteField(field_id) {
-            console.log(field_id)
-            this.fields.splice(field_id, 1)
-            // this.fields = this.fields.filter(field => field.id !== field_id);
+        deleteField(field) {
+            for (const key in this.fields) {
+                if (this.fields[key].id === field.id) {
+                    this.fields.splice(key, 1);
+                }
+                else if (this.fields[key].order > field.order) {
+                    this.fields[key].order--;
+                }
+            }
         },
-        moveUp(field_id) {
-
-            this.fields = this.fields.filter(field => field.id !== field_id);
-            // console.log('move up:' + field)
-            // this.$emit('moveUp', field);
+        moveUp(field) {
+            if (field.order === 0) return;
+            for (let i = 0; i < this.fields.length; i++) {
+                if (this.fields[i].id === field.id) {
+                    this.fields[i].order--;
+                    this.fields[i - 1].order++;
+                }
+            }
+        },
+        moveDown(field) {
+            if (field.order === this.fields.length - 1) return;
+            for (let i = 0; i < this.fields.length; i++) {
+                if (this.fields[i].id === field.id) {
+                    this.fields[i].order++;
+                    this.fields[i + 1].order--;
+                }
+            }
         }
     }
 }
@@ -68,34 +101,47 @@ export default {
     background-color: #fff7f6;
 }
 
-.panel {
+.field-list-panel {
     display: flex;
     flex-direction: column;
-    transition: all 1s;
+    transition: all 500ms;
 }
 
-.list-enter,
-.list-leave-to {
+.field-list-enter,
+.field-list-leave-to {
   opacity: 0;
 }
 
-.list-enter {
+.field-list-enter {
   transform: translateY(-30px);
 }
 
-.list-leave-to {
+.field-list-leave-to {
   transform: translateY(-30px);
 }
 
-.list-leave-active {
+.field-list-leave-active {
     width: 100%;    
   position: absolute;
 }
 
+.side-bar {
+    background-color: red;
+    position: sticky;
+    top: 20%;
+    height: 100%;
+}
+
+.survey-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .survey {
-    position: relative;
-    margin: 0 auto;
+    flex-grow: 1;
     max-width: 640px;
+    background-color: blue;
 }
 
 .survey-title {
@@ -103,7 +149,8 @@ export default {
     margin-bottom: 15px;
 }
 
-.survey-title, .survey-description {
+.survey-title,
+.survey-description {
     border: 0;
     border-bottom: 1px solid #f0bebd;
     padding-bottom: 5px;
@@ -111,13 +158,15 @@ export default {
     transition: 200ms;
 }
 
-.survey-title:focus, .survey-description:focus {
+.survey-title:focus,
+.survey-description:focus {
     padding-bottom: 4px;
     border-bottom: 2px solid #e2b0af;
     transition: 200ms;
 }
 
-.survey-title::placeholder, .survey-description::placeholder {
+.survey-title::placeholder,
+.survey-description::placeholder {
     color: #f0bebd;
 }
 
