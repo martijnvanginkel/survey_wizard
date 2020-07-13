@@ -11,7 +11,7 @@
                                 v-bind:field="field"
                                 v-on:delete-field="deleteField"
                                 v-on:move-up="moveUp"
-                                v-on:move-down="moveDown">
+                                v-on:move-down="moveDown" class="question-box">
                     </component>
                 </div>
             </transition-group>
@@ -55,15 +55,13 @@ export default {
         createField(new_field) {
             this.fields = [...this.fields, new_field];
         },
-        deleteField(field) {
-            for (const key in this.fields) {
-                if (this.fields[key].id === field.id) {
-                    this.fields.splice(key, 1);
-                }
-                else if (this.fields[key].order > field.order) {
-                    this.fields[key].order--;
-                }
-            }
+        deleteField(target) {
+            this.fields.forEach((field) => {
+               if (field.id === target.id) this.fields.splice(field, 1);
+            });
+            this.fields.forEach((field) => {
+                if (field.order > target.order) field.order--;
+            });
         },
         moveUp(field) {
             if (field.order === 0) return;
@@ -107,27 +105,25 @@ export default {
 
 .field-list-enter,
 .field-list-leave-to {
-  opacity: 0;
+    /* position: absolute; */
+    opacity: 0;
 }
 
 .field-list-enter {
-  transform: translateY(-30px);
+    transform: translateY(-30px);
 }
 
 .field-list-leave-to {
-  transform: translateY(-30px);
+    transform: translateY(-30px);
 }
 
 .field-list-leave-active {
-    width: 100%;    
-  position: absolute;
+    position: absolute;
+    width: 100%;
 }
 
 .side-bar {
     background-color: red;
-    /* position: sticky;
-    top: 20%;
-    height: 100%; */
 }
 
 .survey-container {
@@ -137,9 +133,9 @@ export default {
 }
 
 .survey {
+    position: relative;
     flex-grow: 1;
     max-width: 640px;
-    background-color: blue;
 }
 
 .survey-title {
@@ -166,6 +162,22 @@ export default {
 .survey-title::placeholder,
 .survey-description::placeholder {
     color: #f0bebd;
+}
+
+.question-box {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.question-box:focus-within {
+    padding-left: 12px;
+    border-left: 4px solid #d3a3a2;
+    transition: 200ms ease;
 }
 
 </style>

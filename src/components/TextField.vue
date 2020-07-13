@@ -1,9 +1,10 @@
 <template>
-    <div class="question-box">
+    <div>
         <FieldHeader v-on="$listeners" v-bind:field="field"/>
         <div class="question-input">
             <input type="text" placeholder="Question" class="question" spellcheck="false">
             <p class="text-field-example">Short answer</p>
+            <hr class="dotted-line" />
         </div>
     </div>
 </template>
@@ -21,21 +22,6 @@ export default {
 </script>
 
 <style>
-.question-box {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    margin: 15px 0;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    background-color: white;
-}
-
-.question-box:focus-within {
-    padding-left: 12px;
-    border-left: 4px solid #d3a3a2;
-    transition: 200ms ease;
-}
 
 .question-header {
     display: flex;
@@ -71,8 +57,14 @@ export default {
 .text-field-example {
     max-width: 60%;
     color: lightgray;
-    border-bottom: 1px dotted lightgray;
     user-select: none;
+}
+
+.dotted-line {
+    border: 1px dotted lightgray; 
+    border-style: none none dotted;
+    max-width: 70%;
+    margin-left: 0;
 }
 
 </style>

@@ -1,12 +1,12 @@
 <template>
     <div class="tool-box">
-        <button v-on:click="createField('TextField')">Text</button>
-        <button v-on:click="createField('TextAreaField')">Textarea</button>
-        <button>Radio</button>
-        <button>Multiplechoice</button>
-        <button>Scale</button>
-        <button>Date</button>
-        <button>Time</button>
+        <button v-on:click="createField('TextField')" title="Short answer"><font-awesome-icon icon="grip-lines" /></button>
+        <button v-on:click="createField('TextAreaField')" title="Long answer"><font-awesome-icon icon="align-justify" /></button>
+        <button title="One answer"><font-awesome-icon icon="dot-circle" /></button>
+        <button title="Multiple answers"><font-awesome-icon icon="check-square" /></button>
+        <button title="Slider"><font-awesome-icon icon="sliders-h" /></button>
+        <button title="Time"><font-awesome-icon icon="clock" /></button>
+        <button title="Date"><font-awesome-icon icon="calendar-day" /></button>
     </div>
 </template>
 
@@ -34,27 +34,30 @@ export default {
 
 .tool-box { 
     position: sticky;
-    top: 0;
-    transform: translate(0, 50%);
-    height: 100%;
-    background-color: green;
     display: flex;
     flex-direction: column;
+    top: 0;
+    height: 100%;
+    padding: 3px;
+    transform: translate(0, 50%);
+    background-color: white;
+    margin-left: 5px;
+    border-radius: 5px;
 }
 
 button {
-    border: 2px solid black;
-    border-radius: 3px;
     margin: 5px;
     padding: 2px 4px;
-    background-color: transparent;
+    border: 0;
     outline: none;
     transition: 100ms;
+    font-size: 1em;
+    background-color: transparent;
 }
 
 button:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.5);
     transition: 200ms;
 }
 
