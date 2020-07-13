@@ -16,10 +16,8 @@
                 </div>
             </transition-group>
         </div>
-        <div class="side-bar">
-            <ToolBox    v-on:create-field="createField"
-                        v-bind:fields="fields"/>
-        </div>
+        <ToolBox    v-on:create-field="createField"
+                    v-bind:fields="fields"/>
     </div>
 </template>
 
@@ -127,9 +125,9 @@ export default {
 
 .side-bar {
     background-color: red;
-    position: sticky;
+    /* position: sticky;
     top: 20%;
-    height: 100%;
+    height: 100%; */
 }
 
 .survey-container {

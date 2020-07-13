@@ -33,6 +33,10 @@ export default {
 <style scoped>
 
 .tool-box { 
+    position: sticky;
+    top: 0;
+    transform: translate(0, 50%);
+    height: 100%;
     background-color: green;
     display: flex;
     flex-direction: column;

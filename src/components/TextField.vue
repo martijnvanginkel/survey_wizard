@@ -1,10 +1,6 @@
 <template>
     <div class="question-box">
-        <div class="question-header">
-            <button v-on:click="moveUp"><font-awesome-icon icon="sort-amount-up" /></button>
-            <button v-on:click="moveDown"><font-awesome-icon icon="sort-amount-down" /></button>
-            <button v-on:click="deleteField">Delete</button>
-        </div>
+        <FieldHeader v-on="$listeners" v-bind:field="field"/>
         <div class="question-input">
             <input type="text" placeholder="Question" class="question" spellcheck="false">
             <p class="text-field-example">Short answer</p>
@@ -13,12 +9,14 @@
 </template>
 
 <script>
-import fieldMixin from './../mixins/fieldMixin';
+import FieldHeader from './FieldHeader';
 
 export default {
     name: 'TextField',
-    props: ['field'],
-    mixins: [fieldMixin]
+    components: {
+        FieldHeader
+    },
+    props: ['field']
 }
 </script>
 
