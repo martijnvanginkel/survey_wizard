@@ -1,28 +1,28 @@
 <template>
     <div>
-        <FieldHeader v-on="$listeners" v-bind:field="field"/>
+        <!-- <FieldHeader v-on="$listeners" v-bind:field="field"/>
         <div class="question-input">
-            <input type="text" placeholder="Question" class="question" spellcheck="false">
+            <input type="text" placeholder="Question" class="question" spellcheck="false"> -->
             <p class="text-field-example">Short answer</p>
             <hr class="dotted-line" />
-        </div>
+        <!-- </div> -->
     </div>
 </template>
 
 <script>
-import FieldHeader from './FieldHeader';
+// import FieldHeader from './FieldHeader';
 
 export default {
     name: 'TextField',
     components: {
-        FieldHeader
+        // FieldHeader
     },
     props: ['field']
 }
 </script>
 
 <style>
-
+/* 
 .question-header {
     display: flex;
     justify-content: flex-end;
@@ -52,7 +52,7 @@ export default {
     margin-bottom: 14px;
     border-bottom: 2px solid black;
     transition: 200ms;
-}
+} */
 
 .text-field-example {
     max-width: 60%;

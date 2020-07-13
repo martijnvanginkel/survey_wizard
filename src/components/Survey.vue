@@ -7,12 +7,21 @@
             </div>    
             <transition-group name="field-list">
                 <div v-bind:key="field.id" v-for="field in orderFields" class="field-list-panel">
-                    <component  v-bind:is="field.component" 
-                                v-bind:field="field"
-                                v-on:delete-field="deleteField"
-                                v-on:move-up="moveUp"
-                                v-on:move-down="moveDown" class="question-box">
-                    </component>
+
+
+                    <div class="question-box">
+                        <FieldHeader v-on="$listeners" v-bind:field="field"/>
+                        <div class="question-input">
+                            <input type="text" placeholder="Question" class="question" spellcheck="false">
+                            <component  v-bind:is="field.component" 
+                                        v-bind:field="field"
+                                        v-on:delete-field="deleteField"
+                                        v-on:move-up="moveUp"
+                                        v-on:move-down="moveDown">
+                            </component>
+                        </div>
+                    </div>
+
                 </div>
             </transition-group>
         </div>
@@ -23,6 +32,7 @@
 
 <script>
 import ToolBox from './ToolBox';
+import FieldHeader from './FieldHeader';
 import TextField from './TextField';
 import TextAreaField from './TextAreaField';
 
@@ -30,6 +40,7 @@ export default {
     name: 'Survey',
     components: {
         ToolBox,
+        FieldHeader,
         TextField,
         TextAreaField
     },
@@ -86,6 +97,40 @@ export default {
 </script>
 
 <style>
+
+
+.question-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ffe8e7;
+}
+
+.question {
+    color: black;
+    background-color: #fff7f6;
+    border: 0;
+    border-bottom: 1px solid #d3a3a2;
+    min-width: 60%;
+    padding: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: 200ms;
+}
+
+.question:hover {
+    background-color: #ffe8e7;
+    transition: 200ms;
+}
+
+.question:focus {
+    margin-bottom: 14px;
+    border-bottom: 2px solid black;
+    transition: 200ms;
+}
+
+
 
 .colors {
     background-color: #d3a3a2;
