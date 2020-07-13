@@ -7,8 +7,7 @@
     <transition name="fade">
       <Survey v-if="doing_survey"/>
       <button v-if="!doing_survey" v-on:click="createSurvey" class="start-button">start</button>
-    </transition>
-    
+    </transition> 
   </div>
 </template>
 
