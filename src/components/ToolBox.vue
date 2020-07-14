@@ -47,6 +47,8 @@ export default {
 .icon-button {
     /* margin: 5px; */
     /* padding: 2px 4px; */
+    margin: 0;
+    padding: 0;
     border: 0;
     outline: none;
     transition: 100ms;

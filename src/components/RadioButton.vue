@@ -53,6 +53,7 @@ input[type="text"] {
     font-size: 1em;
     padding: 0;
     margin: 0;
+    margin-right: 7px;
     border: 0;
     bottom: 0;
     background-color: orange;
@@ -63,6 +64,7 @@ input[type="radio"] {
     align-self: center;
     padding: 0;
     margin: 0;
+    margin-right: 5px;
     outline: none;
 }
 
@@ -79,6 +81,7 @@ label {
     justify-content: flex-end;
     align-content: center;
     width: 100%;
+    margin: 1px 0;
 }
 
 .radio-option:hover {
