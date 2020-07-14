@@ -42,9 +42,9 @@ export default {
     transition: 200ms;
 }
 
-.question:focus {
+/* .question:focus {
     margin-bottom: 14px;
     border-bottom: 2px solid black;
     transition: 200ms;
-}
+} */
 </style>

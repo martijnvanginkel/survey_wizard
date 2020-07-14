@@ -6,17 +6,20 @@
     </header> -->
     <transition name="fade">
       <Survey v-if="doing_survey"/>
-      <button v-if="!doing_survey" v-on:click="createSurvey" class="start-button">start</button>
+      <HomePage v-if="!doing_survey" v-on:start-survey="startSurvey"/>
+
     </transition> 
   </div>
 </template>
 
 <script>
+import HomePage from './components/HomePage';
 import Survey from './components/Survey';
 
 export default {
   name: 'App',
   components: {
+    HomePage,
     Survey
   },
   data() {
@@ -25,7 +28,7 @@ export default {
     }
   },
   methods: {
-    createSurvey() {
+    startSurvey() {
       this.doing_survey = true;
     }
   }
@@ -53,36 +56,6 @@ html, body {
 h1, p {
   margin: 0;
   padding: 0;
-}
-
-.main-header {
-  width: 100%;
-  text-align: center;
-}
-
-.start-button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: 200ms;
-  margin: 0 auto;
-  padding: 10px 25px;
-  border: 0;
-  border-bottom: 2px solid #ff7f7a;
-  border-radius: 100px;
-  color: #fffff2;
-  font-size: 1em;
-  letter-spacing: 1px;
-  background-color: lightsalmon;
-  outline: none;
-}
-
-.start-button:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  transition: 500ms;
-  cursor: pointer;
-  background-color: #ff7f7a;
 }
 
 .fade-enter-active, .fade-leave-active {

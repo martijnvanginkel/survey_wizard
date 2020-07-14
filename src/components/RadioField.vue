@@ -1,16 +1,11 @@
 <template>
     <div>
-        <!-- <input type="radio" id="male" name="gender" value="male">
-        <label for="option">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label> -->
         <div v-bind:key="button.id" v-for="button in buttons">
-            <RadioButton/>
+            <RadioButton v-on:button-selected="buttonSelected" v-on:delete-button="deleteButton" v-bind:button="button"/>
         </div>
-
-        <button v-on:click="addOption" type="button">Add</button>
+        <button v-on:click="addButton" type="button" class="icon-button">
+            <font-awesome-icon icon="plus" />
+        </button>
     </div>
 </template>
 
@@ -31,12 +26,26 @@ export default {
         }
     },
     methods: {
-        addOption() {
+        addButton() {
             const button = {
                 id: uuid.v4(),
-                name: ''
+                name: '',
+                selected: false,
+                value: 'Option'
             }
             this.buttons = [...this.buttons, button];
+        },
+        deleteButton(target) {
+            this.buttons = this.buttons.filter(button => button.id !== target.id);
+        },
+        buttonSelected(target) {
+            this.buttons.forEach(button => {
+                button.selected = false;
+                if (button.id === target.id) {
+                    button.selected = true;
+                    console.log(button);
+                }
+            });
         }
     }
 

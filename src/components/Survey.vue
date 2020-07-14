@@ -94,11 +94,11 @@ export default {
     transition: all 500ms;
 }
 
-.field-panel:focus-within {
+/* .field-panel:focus-within {
     padding-left: 12px;
     border-left: 4px solid #d3a3a2;
     transition: 200ms ease;
-}
+} */
 
 .colors {
     background-color: #d3a3a2;
