@@ -13,6 +13,7 @@ export default {
 </script>
 
 <style>
+
 .short-answer {
     max-width: 60%;
     color: lightgray;
@@ -20,9 +21,11 @@ export default {
 }
 
 .dotted-line {
+    height: 1px;
     border: 1px dotted lightgray; 
     border-style: none none dotted;
     max-width: 70%;
     margin-left: 0;
 }
+
 </style>

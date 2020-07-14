@@ -3,7 +3,7 @@
         <button v-if="hovering" v-on:click="deleteButton" type="button" class="icon-button">
             <font-awesome-icon icon="trash" />
         </button>
-        <input v-if="button.selected" v-focus v-model="button.value" v-on:blur="deselect" type="text">
+        <input v-if="button.selected" v-focus v-model="button.value" v-on:blur="deselect" type="text" spellcheck="false">
         <label v-if="!button.selected" v-on:click="select">{{ button.value }}</label>
         <input type="radio" disabled>
     </div>
@@ -51,13 +51,13 @@ input[type="text"] {
     font-size: inherit;
     flex-grow: 1;
     font-size: 1em;
-    padding: 0;
+    padding: 2px;
     margin: 0;
     margin-right: 7px;
     border: 0;
     bottom: 0;
-    background-color: orange;
     align-self: center;
+    background-color: lightgray;
 }
 
 input[type="radio"] {
@@ -71,8 +71,12 @@ input[type="radio"] {
 label {
     font-size: 1em;
     flex-grow: 1;
-    padding: 0;
+    padding: 2px;
     margin: 0;
+}
+
+label:hover {
+    cursor: text;
 }
 
 .radio-option {
@@ -82,22 +86,12 @@ label {
     align-content: center;
     width: 100%;
     margin: 1px 0;
+    padding-bottom: 3px;
 }
 
 .radio-option:hover {
-    /* padding-bottom: 0px;
+    padding-bottom: 2px;
     border-bottom: 1px solid lightgray;
-    cursor: auto; */
 }
 
-/* label {
-    padding-bottom: 1px;
-    width: 100%;
-}
-
-label:hover {
-    padding-bottom: 0px;
-    border-bottom: 1px solid lightgray;
-    cursor: auto;
-} */
 </style>
