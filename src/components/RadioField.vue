@@ -29,7 +29,6 @@ export default {
         addButton() {
             const button = {
                 id: uuid.v4(),
-                name: '',
                 selected: false,
                 value: 'Option'
             }
@@ -43,7 +42,6 @@ export default {
                 button.selected = false;
                 if (button.id === target.id) {
                     button.selected = true;
-                    console.log(button);
                 }
             });
         }

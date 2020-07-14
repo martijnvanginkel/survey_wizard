@@ -51,13 +51,13 @@ p {
 
 @keyframes MoveUpDown {
     0% {
-        transform: translateY(-100%) rotate(20deg);
+        transform: translateY(-40%) rotate(30deg);
     }
     50% {
         transform: translateY(0%);
     }
     100% {
-        transform: translateY(-100%) rotate(20deg);
+        transform: translateY(-40%) rotate(30deg);
     }
 }
 

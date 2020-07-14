@@ -11,6 +11,7 @@ import FieldHeader from './FieldHeader';
 import TextField from './TextField';
 import TextAreaField from './TextAreaField';
 import RadioField from './RadioField';
+import CheckboxField from './CheckboxField';
 
 export default {
     name: 'FieldPanel',
@@ -18,7 +19,8 @@ export default {
         FieldHeader,
         TextField,
         TextAreaField,
-        RadioField
+        RadioField,
+        CheckboxField
     },
     props: ['field']
 }
