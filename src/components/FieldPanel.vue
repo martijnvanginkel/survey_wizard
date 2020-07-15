@@ -38,11 +38,13 @@ export default {
     background-color: #fff7f6;
     border: 0;
     border-bottom: 1px solid #d3a3a2;
-    min-width: 60%;
+    width: 90%;
+    max-width: 360px;
     padding: 10px;
     margin-bottom: 15px;
     outline: none;
     transition: 200ms;
+
 }
 
 .question:hover {

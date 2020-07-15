@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-    <!-- <header class="main-header">
-      <h1>survey wizard</h1>
-      <p>create and share surveys quickly.</p>
-    </header> -->
     <transition name="fade">
       <Survey v-if="doing_survey"/>
       <HomePage v-if="!doing_survey" v-on:start-survey="startSurvey"/>
-
     </transition> 
   </div>
 </template>

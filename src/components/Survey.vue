@@ -2,8 +2,8 @@
     <div class="survey-container">
         <div class="survey">
             <div class="field-panel">
-                <input class="survey-title" type="text" placeholder="Title">
-                <input class="survey-description" type="text" placeholder="Description">
+                <input class="survey-title" type="text" placeholder="Title" spellcheck="false">
+                <input class="survey-description" type="text" placeholder="Description" spellcheck="false">
             </div>    
             <transition-group name="field-list">
                 <div v-bind:key="field.id" v-for="field in orderFields" class="field-panel">
@@ -13,6 +13,7 @@
                                 v-on:move-down="moveDown" />
                 </div>
             </transition-group>
+            <ShareButton/>
         </div>
         <ToolBox    v-on:create-field="createField"
                     v-bind:fields="fields"/>
@@ -22,12 +23,14 @@
 <script>
 import ToolBox from './ToolBox';
 import FieldPanel from './FieldPanel';
+import ShareButton from './ShareButton';
 
 export default {
     name: 'Survey',
     components: {
         ToolBox,
-        FieldPanel
+        FieldPanel,
+        ShareButton
     },
     data() {
         return {
@@ -102,7 +105,8 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 50px;
+    margin: 0 0 50px 15px;
+    margin-bottom: 30px;
 }
 
 .survey {
@@ -119,7 +123,7 @@ export default {
 .survey-title,
 .survey-description {
     border: 0;
-    border-bottom: 1px solid #f0bebd;
+    border-bottom: 1px solid lightgray;
     padding-bottom: 5px;
     outline: none;
     transition: 200ms;
@@ -134,7 +138,7 @@ export default {
 
 .survey-title::placeholder,
 .survey-description::placeholder {
-    color: #f0bebd;
+    color: lightgray;
 }
 
 .field-list-enter,
