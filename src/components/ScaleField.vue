@@ -7,7 +7,7 @@
                     {{ i - 1 }}
                 </option>
             </select>
-            <font-awesome-icon icon="slash" />
+            <span class="till">till</span>
             <label for="end"></label>
             <select v-model="end_value" name="end">
                 <option v-for="index in inline" :key="index">
@@ -16,14 +16,16 @@
             </select>    
         </div>
         <div class="scale-values">
+            
             <div class="scale-value">
                 <span>{{ start_value }}</span>
-                <input type="text" class="scale-text" placeholder="Small">
+                <input type="text" placeholder="Small" spellcheck="false">
             </div>
             <div class="scale-value">
                 <span>{{ end_value }}</span>
-                <input type="text" class="scale-text" placeholder="Big">
-            </div>    
+                <input type="text" placeholder="Big" spellcheck="false">
+            </div>
+
         </div>
     </div>
 </template>
@@ -49,22 +51,51 @@ export default {
 </script>
 
 <style scoped>
+
+.scale-field {
+    
+}
+
+select {
+    border: 0;
+    outline: 0;
+    padding: 10px;
+}
+
+.till {
+    font-size: 0.8em;
+    margin: 0 5px 0 10px;
+    text-align: center;
+}
+
 .scale-values {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-top: 10px;
 }
 
 /* input[type="text"] {
  */
 
-.scale-text {
+ .scale-value {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .scale-value span {
+    font-size: 0.8em;
+    margin-bottom: 2px;
+ }
+
+.scale-value input[type="text"] {
     border: 0;
     outline: 0;
     padding-bottom: 1px;
+    font-size: 0.9em;
 }
 
-.scale-text:focus {
-    border-bottom: 1px solid blue;
+.scale-value input[type="text"]:focus {
+    border-bottom: 1px solid #d3a3a2;
     padding-bottom: 0px;
 }
 
