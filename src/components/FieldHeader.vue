@@ -1,8 +1,8 @@
 <template>
     <div class="field-header">
-        <button v-on:click="moveUp" class="icon-button"><font-awesome-icon icon="sort-amount-up" /></button>
-        <button v-on:click="moveDown" class="icon-button"><font-awesome-icon icon="sort-amount-down" /></button>
-        <button v-on:click="deleteField" class="icon-button"><font-awesome-icon icon="trash-alt" /></button>
+        <button v-on:click="moveUp" class="icon-button icon-padding"><font-awesome-icon icon="sort-amount-up" /></button>
+        <button v-on:click="moveDown" class="icon-button icon-padding"><font-awesome-icon icon="sort-amount-down" /></button>
+        <button v-on:click="deleteField" class="icon-button icon-padding"><font-awesome-icon icon="trash-alt" /></button>
     </div>
 </template>
 

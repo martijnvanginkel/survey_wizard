@@ -2,7 +2,7 @@
     <div>
         <div class="time-field">
             <p>Time</p>
-            <font-awesome-icon icon="clock" />
+            <font-awesome-icon class="clock-icon" icon="clock" />
         </div>
         <hr class="dotted-line">
     </div>
@@ -24,6 +24,10 @@ export default {
     max-width: 60%;
     color: lightgray;
     user-select: none;
-    margin-right: 10px;
+    margin-right: 5px;
+}
+
+.clock-icon {
+    color: lightgray;
 }
 </style>

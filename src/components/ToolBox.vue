@@ -1,12 +1,12 @@
 <template>
     <div class="tool-box">
-        <button v-on:click="createField('TextField')" title="Short answer" class="icon-button"><font-awesome-icon icon="grip-lines" /></button>
-        <button v-on:click="createField('TextAreaField')" title="Long answer" class="icon-button"><font-awesome-icon icon="align-justify" /></button>
-        <button v-on:click="createField('RadioField')" title="One answer" class="icon-button"><font-awesome-icon icon="dot-circle" /></button>
-        <button v-on:click="createField('CheckBoxField')" title="Multiple answers" class="icon-button"><font-awesome-icon icon="check-square" /></button>
-        <button v-on:click="createField('ScaleField')" title="Slider" class="icon-button"><font-awesome-icon icon="sliders-h" /></button>
-        <button v-on:click="createField('TimeField')" title="Time" class="icon-button"><font-awesome-icon icon="clock" /></button>
-        <button v-on:click="createField('DateField')" title="Date" class="icon-button"><font-awesome-icon icon="calendar-day" /></button>
+        <button v-on:click="createField('TextField')" title="Short answer" class="icon-button icon-padding"><font-awesome-icon icon="grip-lines" /></button>
+        <button v-on:click="createField('TextAreaField')" title="Long answer" class="icon-button icon-padding"><font-awesome-icon icon="align-justify" /></button>
+        <button v-on:click="createField('RadioField')" title="One answer" class="icon-button icon-padding"><font-awesome-icon icon="dot-circle" /></button>
+        <button v-on:click="createField('CheckBoxField')" title="Multiple answers" class="icon-button icon-padding"><font-awesome-icon icon="check-square" /></button>
+        <button v-on:click="createField('ScaleField')" title="Slider" class="icon-button icon-padding"><font-awesome-icon icon="sliders-h" /></button>
+        <button v-on:click="createField('TimeField')" title="Time" class="icon-button icon-padding"><font-awesome-icon icon="clock" /></button>
+        <button v-on:click="createField('DateField')" title="Date" class="icon-button icon-padding"><font-awesome-icon icon="calendar-day" /></button>
     </div>
 </template>
 
@@ -45,14 +45,12 @@ export default {
 }
 
 .icon-button {
-    /* margin: 5px; */
-    /* padding: 2px 4px; */
     margin: 0;
     padding: 0;
     border: 0;
     outline: none;
     transition: 100ms;
-    font-size: 0.8em;
+    font-size: 0.9em;
     background-color: transparent;
 }
 
@@ -60,6 +58,11 @@ export default {
     cursor: pointer;
     transform: scale(1.5);
     transition: 200ms;
+}
+
+.icon-padding {
+    margin: 5px;
+    padding: 2px 4px;
 }
 
 </style>
