@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="range-selection">
+        <div>
             <label for="start"></label>
             <select v-model="start_value" name="start">
                 <option v-for="i in 2" :key="i">
@@ -15,8 +15,7 @@
                 </option>
             </select>    
         </div>
-        <div class="scale-values">
-            
+        <div class="scale-values">        
             <div class="scale-value">
                 <span>{{ start_value }}</span>
                 <input type="text" placeholder="Small" spellcheck="false">
@@ -25,7 +24,6 @@
                 <span>{{ end_value }}</span>
                 <input type="text" placeholder="Big" spellcheck="false">
             </div>
-
         </div>
     </div>
 </template>
@@ -51,11 +49,6 @@ export default {
 </script>
 
 <style scoped>
-
-.scale-field {
-    
-}
-
 select {
     border: 0;
     outline: 0;
@@ -73,9 +66,6 @@ select {
     flex-direction: row;
     margin-top: 10px;
 }
-
-/* input[type="text"] {
- */
 
  .scale-value {
     display: flex;
@@ -98,5 +88,4 @@ select {
     border-bottom: 1px solid #d3a3a2;
     padding-bottom: 0px;
 }
-
 </style>

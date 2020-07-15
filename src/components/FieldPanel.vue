@@ -49,10 +49,4 @@ export default {
     background-color: #ffe8e7;
     transition: 200ms;
 }
-
-/* .question:focus {
-    margin-bottom: 14px;
-    border-bottom: 2px solid black;
-    transition: 200ms;
-} */
 </style>

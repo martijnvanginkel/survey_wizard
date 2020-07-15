@@ -6,14 +6,12 @@
 </template>
 
 <script>
-
 export default {
     name: 'TextField'
 }
 </script>
 
 <style>
-
 .short-answer {
     max-width: 60%;
     color: lightgray;
@@ -27,5 +25,4 @@ export default {
     max-width: 70%;
     margin-left: 0;
 }
-
 </style>

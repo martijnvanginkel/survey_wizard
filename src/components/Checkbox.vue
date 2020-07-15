@@ -35,7 +35,6 @@ export default {
 </script>
 
 <style>
-
 .click-to-edit {
     display: flex;
     flex-direction: row-reverse;
@@ -85,35 +84,5 @@ export default {
     cursor: text;
     transition: 200ms;
 }
-
-/* .checkbox-option {
-    background-color: lightgreen;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-
-label {
-    flex-grow: 1;
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-}
-
-input[type="text"] {
-    font-family: inherit;
-    font-size: inherit;
-    flex-grow: 1;
-    font-size: 1em;
-    padding: 2px;
-    margin: 0;
-    margin-right: 7px;
-    border: 0;
-    bottom: 0;
-    align-self: center;
-    background-color: #ffe8e7;
-} 
-
-*/
 
 </style>

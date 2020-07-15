@@ -82,7 +82,6 @@ export default {
 </script>
 
 <style>
-
 .field-panel {
     display: flex;
     flex-direction: column;
@@ -94,20 +93,9 @@ export default {
     transition: all 500ms;
 }
 
-/* .field-panel:focus-within {
-    padding-left: 12px;
+.field-panel:focus-within {
+    padding: 15px 15px 15px 12px;
     border-left: 4px solid #d3a3a2;
-    transition: 200ms ease;
-} */
-
-.colors {
-    background-color: #d3a3a2;
-    background-color: #e2b0af;
-    background-color: #f0bebd;
-    background-color: #ffcccb;
-    background-color: #ffdad9;
-    background-color: #ffe8e7;
-    background-color: #fff7f6;
 }
 
 .survey-container {
@@ -168,5 +156,4 @@ export default {
     right: 0;
     left: 0;
 }
-
 </style>

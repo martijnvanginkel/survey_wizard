@@ -16,6 +16,7 @@ export default {
     mixins: [fieldMixin]
 }
 </script>
+
 <style>
 .long-answer {
     max-width: 60%;
