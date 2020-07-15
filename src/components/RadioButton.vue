@@ -3,7 +3,7 @@
         <button v-if="hovering" v-on:click="deleteButton" type="button" class="icon-button">
             <font-awesome-icon icon="trash" />
         </button>
-        <input v-if="button.selected" v-focus v-model="button.value" v-on:blur="deselect" type="text" spellcheck="false">
+        <input v-if="button.selected" v-focus:focus_arg v-model="button.value" v-on:blur="deselect" type="text" spellcheck="false">
         <label v-if="!button.selected" v-on:click="select">{{ button.value }}</label>
         <input type="radio" disabled>
     </div>
@@ -15,7 +15,8 @@ export default {
     props: ['button'],
     data() {
         return {
-            hovering: false
+            hovering: false,
+            focus_arg: this.button
         }
     },
     methods: {
@@ -27,18 +28,6 @@ export default {
         },
         deleteButton() {
             this.$emit('delete-button', this.button)
-        }
-    },
-    directives: {
-        focus: {
-            inserted: function(el, binding, vnode) {
-                el.addEventListener('keydown', (e) => {
-                    if (e.keyCode === 13) {
-                        vnode.context.button.selected = false;
-                    }
-                });
-                el.focus();
-            }     
         }
     }
 }

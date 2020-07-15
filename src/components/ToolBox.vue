@@ -3,10 +3,10 @@
         <button v-on:click="createField('TextField')" title="Short answer" class="icon-button"><font-awesome-icon icon="grip-lines" /></button>
         <button v-on:click="createField('TextAreaField')" title="Long answer" class="icon-button"><font-awesome-icon icon="align-justify" /></button>
         <button v-on:click="createField('RadioField')" title="One answer" class="icon-button"><font-awesome-icon icon="dot-circle" /></button>
-        <button v-on:click="createField('CheckboxField')" title="Multiple answers" class="icon-button"><font-awesome-icon icon="check-square" /></button>
-        <button title="Slider" class="icon-button"><font-awesome-icon icon="sliders-h" /></button>
-        <button title="Time" class="icon-button"><font-awesome-icon icon="clock" /></button>
-        <button title="Date" class="icon-button"><font-awesome-icon icon="calendar-day" /></button>
+        <button v-on:click="createField('CheckBoxField')" title="Multiple answers" class="icon-button"><font-awesome-icon icon="check-square" /></button>
+        <button v-on:click="createField('ScaleField')" title="Slider" class="icon-button"><font-awesome-icon icon="sliders-h" /></button>
+        <button v-on:click="createField('TimeField')" title="Time" class="icon-button"><font-awesome-icon icon="clock" /></button>
+        <button v-on:click="createField('DateField')" title="Date" class="icon-button"><font-awesome-icon icon="calendar-day" /></button>
     </div>
 </template>
 

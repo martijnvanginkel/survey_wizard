@@ -11,7 +11,10 @@ import FieldHeader from './FieldHeader';
 import TextField from './TextField';
 import TextAreaField from './TextAreaField';
 import RadioField from './RadioField';
-import CheckboxField from './CheckboxField';
+import CheckBoxField from './CheckBoxField';
+import ScaleField from './ScaleField';
+import DateField from './DateField';
+import TimeField from './TimeField';
 
 export default {
     name: 'FieldPanel',
@@ -20,7 +23,10 @@ export default {
         TextField,
         TextAreaField,
         RadioField,
-        CheckboxField
+        CheckBoxField,
+        ScaleField,
+        DateField,
+        TimeField
     },
     props: ['field']
 }
